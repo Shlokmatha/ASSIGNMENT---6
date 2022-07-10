@@ -26,30 +26,49 @@ else:
 
 
 #3
-def pascal_triangle(num):
-   trow = [1]
-   y = [0]
-   for x in range(max(num,0)):
-      print(trow)
-      trow=[l+r for l,r in zip(trow+y, y+trow)]
-   return num>=1
-pascal_triangle(5)
+from math import factorial
+n = int(input("Enter number of rows of Pascal Triangle : "))
+
+
+for i in range(n):
+    for j in range(n-i+1):
+        print(end=" ")
+    for j in range(i+1):
+ 
+        # nCr = n!/((n-r)!*r!)
+        print(factorial(i)//(factorial(j)*factorial(i-j)), end=" ")
+    print()
 
 
 
 #4
-import string
-def ispangram(sentence, alphabet=string.ascii_lowercase):
-    return set(alphabet) <=set(sentence.lower())
+alphabets = "abcdefghijklmnopqrstuvwxyz"
 
-print(ispangram(input('Sentence: ')))
+def ispangram(userstr):
+    for x in alphabets:
+        if x not in userstr.lower():
+            return False
+    return True
+
+input_str = str(input("Enter string to be checked if pangram or not : "))
+
+if(ispangram(input_str)==True):
+    print("Yes, it is a pangram.")
+else:
+    print("No, it is not a pangram.")
 
 
 
 #5
-items=[n for n in input().split('-')]
-items.sort()
-print('-'.join(items))
+user_str = str(input("Enter hyphen separated sequence of words : "))
+
+word_list = [n for n in user_str.split("-")] # creating a list of all words after separating them
+print(word_list)
+word_list.sort()
+print(word_list)
+
+print("Alphabetically sorted hyphen separated list is : ")
+print("-".join(word_list))
 
 
 
