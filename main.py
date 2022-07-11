@@ -128,22 +128,21 @@ findTriplets(arr, n)
 
 
 #9
-class validity:
- 
-    def f(str):
-        a= ['()', '{}', '[]']
-  
-        while any(i in str for i in a):
-            
-            for j in a:
-                str = str.relace(j,'')
-        return not str
-s = input('enter: )
-
-print(s, "-", "is balanced"
-
-     if validity.f(s) else "is unbalnced")
-
+def checkBalance(str1):
+    count=0
+    ans=False
+    for i in str1:
+        if i=="(" or i=="{" or i=="[":
+            count+=1
+        elif i == ")" or i=="}" or i=="]":
+            count-=1
+        if count<0:
+            return ans
+    if count==0:
+        return not ans
+    return ans
+str1=input('Enter a string of brackets:')
+print('Given string is balanced:',checkBalance(str1))
 
 
 
